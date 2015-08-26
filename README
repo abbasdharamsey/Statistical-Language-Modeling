@@ -1,0 +1,34 @@
+The program computes the output to the following tasks:
+
+(a) Compute the maximum likelihood estimate of the unigram distribution Pu(w)over words w.Print out a table of all the words w that start with the letter “S”, along with their unigram probabilities Pu(w). (You do not need to print out the full unigram distribution over all 500 words.)
+
+(b) Compute the maximum likelihood estimate of the bigram distribution Pb(w′|w). Print out a table of the ten most likely words w′ to follow the word “ONE”, along with their bigram probabilities Pb(w′|w = ONE). (You do not need need to print out the full bigram matrix.)
+
+(c) Consider the sentence “The stock market fell by one hundred points last week.” Ignoring punctu- ation, compute and compare the log-likelihoods (using the natural logarithm) of this sentence under the unigram and bigram models:
+    Lu = log􏰅[Pu(the) Pu(stock) Pu(market) . . . Pu(points) Pu(last)Pu(week)􏰆]
+    Lb = log􏰅[Pb(the|⟨s⟩) Pb(stock|the) Pb(market|stock) . . . Pb(last|points) Pb(week|last)]
+
+In the equation for the bigram log-likelihood, the token ⟨s⟩ is used to mark the beginning of a sen- tence. Which model yields the highest log-likelihood?
+
+(d) Consider the sentence “The fourteen officials sold fire insurance.” Ignoring punctuation, compute and compare the log-likelihoods (using the natural logarithm) of this sentence under the unigram and bigram models:
+
+    Lu = log􏰅[Pu(the) Pu(fourteen) Pu(officials) . . . Pu(sold) Pu(fire) Pu(insurance)􏰆􏰆]
+    Lb = log􏰅[Pb(the|⟨s⟩) Pb(fourteen|the) Pb(officials|fourteen) . . . Pb(fire|sold) Pb(insurance|fire)]
+
+Which pairs of adjacent words in this sentence are not observed in the training corpus? What effect does this have on the log-likelihood from the bigram model?
+
+
+(e) Consider the so-called mixture model that predicts words from a weighted interpolation of the unigram and bigram models:
+􏰆
+    Pm(w′|w) = λPu(w′) + (1 − λ)Pb(w′|w),
+
+where λ ∈ [0, 1] determines how much weight is attached to each prediction. Under this mixture
+model, the log-likelihood of the sentence from part (d) is given by:
+
+    Lm = log[􏰅Pm(the|⟨s⟩) Pm(fourteen|the) Pm(officials|fourteen) . . . Pm(fire|sold) Pm(insurance|fire)] 􏰆 
+
+Compute and plot the value of this log-likelihood Lm (using the natural logarithm) as a function of
+the parameter λ ∈ [0, 1]. From your results, deduce the optimal value of λ to two significant digits.
+
+
+To run the code, have Python 2.7 installed and type 'python hw3.py'. This was my very first attempt at coding in Python. 
